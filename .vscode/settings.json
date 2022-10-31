@@ -1,5 +1,5 @@
 {
     "markdown.marp.themes": [
-        "https://raw.githubusercontent.com/kaisugi/marp-theme-academic/main/themes/academic.css"
+        "academic.css"
     ]
 }

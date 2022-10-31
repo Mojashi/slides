@@ -1,11 +1,8 @@
 DotFiles = $(wildcard dot/*.dot)
 DotSVGs = $(patsubst dot/%.dot, dotSvg/%.svg, $(DotFiles)) # list of object files
 
-dotSvg/sub.svg : dot/sub.dot
-	@dot -Kdot $< -o $@ -Tsvg
-
 dotSvg/%.svg : dot/%.dot
-	@dot -Kneato $< -o $@ -Tsvg
+	@dot -Kdot $< -o $@ -Tsvg
 
 .PHONY: all
 all: $(DotSVGs)

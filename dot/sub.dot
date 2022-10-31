@@ -20,4 +20,4 @@ superstart->"0"
 "4" -> "1" [label="1 / ε", style = solid ];
 "4" -> "5" [label="0 / ε",style = solid ];
 "5" -> "0" [label="1 / a", style = solid ];
-"5" -> "3" [label="0 / ε", style = solid ];nodesep="1";}
+"5" -> "3" [label="0 / ε", style = solid ];}
