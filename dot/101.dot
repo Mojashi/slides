@@ -1,0 +1,14 @@
+digraph  {
+rankdir=LR;
+
+superstart[shape = point ];
+superstart->"0"
+"0" [shape=doublecircle];
+"1" [shape=doublecircle];
+"2" [shape=doublecircle];
+"0" -> "1" [label="Some(1) / List()", style = solid ];
+"0" -> "0" [label="Some(0) / List(101_0_0)", style = solid ];
+"1" -> "1" [label="Some(1) / List(101_1_1)", style = solid ];
+"1" -> "2" [label="Some(0) / List()", style = solid ];
+"2" -> "0" [label="Some(1) / List(101_2_1)", style = solid ];
+"2" -> "0" [label="Some(0) / List(101_2_0)", style = solid ];nodesep="1";}

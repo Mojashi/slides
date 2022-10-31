@@ -1,0 +1,23 @@
+digraph  {
+rankdir=LR;
+
+superstart[shape = point ];
+superstart->"0"
+"2" [shape=doublecircle];
+"3" [shape=doublecircle];
+"0" [shape=doublecircle];
+"5" [shape=doublecircle];
+"1" [shape=doublecircle];
+"4" [shape=doublecircle];
+"0" -> "1" [label="1 / ε",style = solid ];
+"0" -> "0" [label="0 / ε", style = solid ];
+"1" -> "1" [label="1 / ε", style = solid ];
+"1" -> "2" [label="0 / ε",style = solid ];
+"2" -> "1" [label="1 / ε", style = solid ];
+"2" -> "3" [label="0 / ε",style = solid ];
+"3" -> "4" [label="1 / ε",style = solid ];
+"3" -> "0" [label="0 / ε", style = solid ];
+"4" -> "1" [label="1 / ε", style = solid ];
+"4" -> "5" [label="0 / ε",style = solid ];
+"5" -> "0" [label="1 / a", style = solid ];
+"5" -> "3" [label="0 / ε", style = solid ];nodesep="1";}

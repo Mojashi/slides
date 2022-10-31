@@ -1,0 +1,9 @@
+digraph  {
+rankdir=LR;
+
+ superstart[shape = point ];
+superstart->"q"
+"q" [shape=doublecircle];
+"q" -> "q" [label="1/1110", style = solid ];
+"q" -> "q" [label="2/1", style = solid ];
+"q" -> "q" [label="3/1111", style = solid ];nodesep="1";}
