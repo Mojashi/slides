@@ -34,7 +34,7 @@ watch:
 
 serve:
 	marp -s . --html
-build:
+build: all
 	marp slide.md --html --theme academic.css -o index.html
 
 misc/BIZUDGothic.zip:
