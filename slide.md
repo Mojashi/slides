@@ -100,6 +100,19 @@ $S = (Q, \Sigma_{idx}, \Sigma_{pcp}, \Delta, q_0, q_f)$
 この$S$に,論理式 $\varphi(v)= (v = 0)$ を課したParikh Automaton を考える
 
 ---
+<!-- _header: ex -->
+
+<div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+<div style="display: flex;align-items: center;">T1: <img src=assets/mult_l.dot.svg/></div>
+<div style="display: flex;align-items: center;">T2: 
+<img src=assets/mult_r.dot.svg/>
+</div>
+</div>
+<img src=assets/mult.dot.svg style="width:100%"/>
+
+制約: $v = \{a:0, b:0\}$
+
+---
 <!-- _header: ParikhAutomaton S の解き方（これまで） -->
 <!-- 解いた結果、yを得たい -->
 1. $S$ の有向グラフとしての表現 $G$ とする
@@ -109,6 +122,14 @@ $S = (Q, \Sigma_{idx}, \Sigma_{pcp}, \Delta, q_0, q_f)$
 3. $\Sigma_{e} y_e \cdot v_e = 0\ (辺eで出力するベクトルv_e)$ と, 2 の論理式の論理積をSMTソルバに解かせる ($y$の具体的な値を得る. 路の復元は容易)
 
 **Z3が遅いので,改善したい. 混合整数計画問題として定式化して高速化**
+
+---
+<!-- _header: やりたいこと-->
+<img src=assets/y_example.dot.svg  style="width:100%"/>
+
+式を解いて $y$ (上図)を得て, 元のオートマトン上の遷移を復元
+0,0,1,1,2,3,0,1,2,3
+
 
 ---
 <!-- _header: オートマトンの受理する路を捉える論理式 -->
@@ -220,12 +241,30 @@ $
 <!-- _header: 実験 -->
 TBD
 
-- 先行研究で未解決だったPCPインスタンスで結構な数のunsatを証明
+- 先行研究で未解決だったPCPインスタンスで結構な数のunsatを証明 (手元の未解決の8割くらいは証明できそう?)
   - トランスデューサWとして,色々な単語$w$についての$Count_{w}$の積を使用
-- 小さいケースから大きいケースまでZ3より圧倒的に速い
+- 小さいケースから大きいケースまでZ3より圧倒的に速い(次ページ)
+- 線形緩和したときの性能
+  - 緩和せずUNSAT証明できるけど,線形緩和だけでは不可能みたいなケースはほぼ無さそう？
+    - 現状,一番効率よくUNSAT判定ができているのは,ある程度大きいトランスデューサで線形緩和を使う方法
+  - 最小値は半分くらいになる感じ？
 
 ---
+<!-- _header: 実験 -->
+
+<img src=assets/time.png style="display:block;margin-left:auto; margin-right:auto; height:100%; object-fit:cover;">
+
+---
+<!-- _header: 実験 -->
+
+$$ \begin{bmatrix} 111 & 111 & 000 & 1 \\ 110 & 101 & 00 & 111 \\\end{bmatrix} $$
+
+$$ \begin{bmatrix} 111 & 111 & 000 & 11 \\ 110 & 101 & 00 & 111 \\\end{bmatrix} $$
+
+$$ \begin{bmatrix} 1111 & 0101 & 11 \\ 1010 & 01 & 111 \\\end{bmatrix} $$
+---
 <!-- _header: 今後 -->
+- 他のParikhAutomatonに適用した時の有効性を確認する
 - equalityの緩和方法は, PCPの文字列制約に限らず一般の文字列制約問題に一般化することが可能なはず
   - unsat性に関してあまり研究が進んでいる様子はなさそう？
 - 良いトランスデューサWとは何なのか？ 

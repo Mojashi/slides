@@ -4,6 +4,8 @@ dotSVGs = $(patsubst dot/%.dot, assets/%.dot.svg, $(DotFiles))
 MmdFiles = $(wildcard mmd/*.mmd)
 mmdSVGs = $(patsubst mmd/%.mmd, assets/%.mmd.svg, $(MmdFiles))
 
+assets/time.png: time.csv misc/BIZUDGothic-Regular.ttf time_plot.py
+	python time_plot.py
 
 assets/t1.dot.svg: dot/t1.dot
 	@dot -Kneato $< -o $@ -Tsvg
@@ -17,9 +19,18 @@ assets/%.mmd.svg : mmd/%.mmd
 	@mmdc -i $< -o $@
 
 .PHONY: all
-all: $(dotSVGs) $(mmdSVGs)
+all: $(dotSVGs) $(mmdSVGs) assets/time.png
 watch:
 	while true; do \
 		make all; \
 		sleep 0.5; \
 	done
+
+serve:
+	marp -s . --html
+
+misc/BIZUDGothic.zip:
+	wget "https://fonts.google.com/download?family=BIZ%20UDGothic" -O misc/BIZUDGothic.zip
+
+misc/BIZUDGothic-Regular.ttf: misc/BIZUDGothic.zip
+	unzip -j -o misc/BIZUDGothic.zip BIZUDGothic-Regular.ttf  -d misc

@@ -1,0 +1,9 @@
+{
+    "options": {
+      "math": {
+        "katexOption": {
+            "strict": false
+        }
+      }
+    }
+  }
