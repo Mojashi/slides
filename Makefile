@@ -4,6 +4,12 @@ dotSVGs = $(patsubst dot/%.dot, assets/%.dot.svg, $(DotFiles))
 MmdFiles = $(wildcard mmd/*.mmd)
 mmdSVGs = $(patsubst mmd/%.mmd, assets/%.mmd.svg, $(MmdFiles))
 
+.PHONY: env
+env:
+	npm i -g @marp-team/marp-cli;
+	npm i -g @mermaid-js/mermaid-cli;
+	pip install pandas matplotlib;
+
 assets/time.png: time.csv misc/BIZUDGothic-Regular.ttf time_plot.py
 	python time_plot.py
 
@@ -28,6 +34,8 @@ watch:
 
 serve:
 	marp -s . --html
+build:
+	marp slide.md --html --theme academic.css -o index.html
 
 misc/BIZUDGothic.zip:
 	wget "https://fonts.google.com/download?family=BIZ%20UDGothic" -O misc/BIZUDGothic.zip
