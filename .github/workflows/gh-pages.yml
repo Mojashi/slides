@@ -2,8 +2,7 @@ name: GitHub Pages
 
 on:
   push:
-    branches:
-      - ["master"]
+    branches: ["master"]
 
 permissions:
   contents: read
@@ -26,3 +25,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '14'
+
+      - run: make env
+      - run: make build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
