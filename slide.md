@@ -2,7 +2,7 @@
 marp: true
 theme: academic
 paginate: true
-math: katex
+math: mathjax
 ---
 
 <!-- _class: lead -->
