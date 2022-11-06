@@ -6,6 +6,7 @@ mmdSVGs = $(patsubst mmd/%.mmd, assets/%.mmd.svg, $(MmdFiles))
 
 .PHONY: env
 env:
+	sudo apt install -y graphviz;
 	npm i -g @marp-team/marp-cli;
 	npm i -g @mermaid-js/mermaid-cli;
 	pip install pandas matplotlib;
