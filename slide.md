@@ -147,7 +147,6 @@ $S = (Q, \Sigma_{idx}, \Sigma_{pcp}, \Delta, q_0, q_f)$
 ---
 <!-- _header: euler condition -->
 
-スタートとゴールを除いたどの頂点 $v$ についても,
 $$ \Sigma_{e\in target(v)} y_e - \Sigma_{e\in source(v)} y_e = \left\{
 \begin{array}{ll}
 -1 & vが開始頂点 \\
@@ -174,7 +173,7 @@ $$\left(n_q>0\right) \wedge\left(\bigvee_{\delta \ni \text { d:target }(d)=q}\le
     - $v$ に到達するパターン
       - そういう制約を入れる. 次スライド
     - $v$ に到達しないパターン
-      - $\forall e\in in(v)\cup out(v), y_e = 0$ を制約に追加する
+      - $\forall e\in target(v)\cup source(v), y_e = 0$ を制約に追加する
 
   と場合分けして再帰的に解く
 <!-- どちらのパターンでもUNSAT → UNSAT -->
