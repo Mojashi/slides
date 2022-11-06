@@ -1,0 +1,25 @@
+digraph  {
+    rankdir=LR;
+
+    superstart[shape = point ];
+    superstart->"0"
+    "2" [shape=circle];
+    "3" [shape=doublecircle];
+    "0" [shape=circle];
+    "5" [shape=circle,color=red];
+    "1" [shape=circle];
+    "4" [shape=circle,color=red];
+    "0" -> "1" [label="5",style = solid ];
+    "0" -> "0" [label="5", style = solid ];
+    "1" -> "1" [label="1", style = solid ];
+    "1" -> "2" [label="5",style = solid ];
+    "2" -> "1" [label="0", style = solid ];
+    "2" -> "3" [label="5",style = solid ];
+    "3" -> "4" [label="0",style = solid ];
+    "3" -> "0" [label="4", style = solid ];
+    "4" -> "1" [label="0", style = solid ];
+    "4" -> "5" [label="100",style = solid, color=red ];
+    "5" -> "4" [label="100",style = solid, color=red ];
+    "5" -> "0" [label="0", style = solid ];
+    "5" -> "3" [label="0", style = solid ];
+}
