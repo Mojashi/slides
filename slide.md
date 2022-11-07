@@ -36,7 +36,7 @@ $$g_{i_1}g_{i_2}\dots g_{i_n} = h_{i_1}h_{i_2}\dots h_{i_n}$$
 ex. サイズ3のPCPインスタンス
 $$ \begin{bmatrix} g\\ h \\\end{bmatrix} = \begin{bmatrix} 100 & 0 & 1 \\ 1 & 100 & 00 \\\end{bmatrix} $$
 解
-$$ "1311322" \in \{1,2,3\}^* $$
+$$ "1311322" \in \{1,2,3\}^+ $$
 実際並べてみると...
 $$\begin{bmatrix} 100 & 1 & 100 & 100 & 1 & 0 & 0 \\ 1 & 00 & 1 & 1 & 00 & 100 & 100 \\\end{bmatrix} $$
 
@@ -93,7 +93,7 @@ $$\mathbf{Parikh(W(T_1(x))) = Parikh(W(T_2(x)))}$$
 
 $S = (Q, \Sigma_{idx}, \Sigma_{pcp}, \Delta, q_0, q_f)$
 - $Q = Q_1\times Q_2$
-- $\Delta \subset Q\times \Sigma_{idx} \times \Z^{ \Sigma_{pcp}} \times Q$
+- $\Delta \subset Q\times \Sigma_{idx} \times \mathbb{Z}^{ \Sigma_{pcp}} \times Q$
 - $\Delta = \{((p_1,p_2),a,{\color{red}\mathbf{v_1-v_2}},(q_1,q_2)) | (p_1,a,v_1,q_1)\in \Delta_1, (p_2,a,v_2,q_2)\in \Delta_2\}$
   - 普通の直積構成で,出力するベクトルが差になっている
 
